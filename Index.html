@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம்</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans Tamil', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fff0e5, #ffe9ec, #fffdf9);
+      color: #3a2c1a;
+    }
+    header {
+      background: linear-gradient(135deg, #4e002f, #a80038, #ff0040);
+      color: white;
+      padding: 3em 0;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+      animation: shine 5s linear infinite;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3em;
+    }
+    nav {
+      background: linear-gradient(to right, #ffd6d6, #fff0f0);
+      display: flex;
+      justify-content: center;
+      gap: 3em;
+      padding: 1em 0;
+      border-bottom: 2px solid #ffd6d6;
+    }
+    nav a {
+      text-decoration: none;
+      color: #a00000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #cc0000;
+    }
+    .container {
+      padding: 3em 1.5em;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 4em;
+    }
+    h2 {
+      color: #b30000;
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5em;
+      margin-top: 1.5em;
+    }
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+    }
+    .image-gallery img:hover {
+      transform: scale(1.03);
+    }
+    footer {
+      background: linear-gradient(to right, #800000, #4e0000);
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      font-size: 0.95rem;
+      border-top: 4px solid #ffcccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம் </h1>
+    <p>குரோம்பேட்டை - சென்னை </p>
+  </header>
+  <nav>
+    <a href="#about">முகப்பு</a>
+    <a href="#gallery">புகை படங்கள்</a>
+    <a href="#contact">தொடர்பு</a>
+  </nav>
+  <div class="container">
+    <section id="about">
+      <h2>முகப்பு</h2>
+      <p>
+        அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம், குரோம்பேட்டை - சென்னை.
+      </p>
+    </section>
+
+    <section id="gallery">
+      <h2>புகை படங்கள்</h2>
+      <div class="image-gallery">
+        <img src="images/1.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
+        <img src="images/2.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
+        <img src="images/3.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>தொடர்பு</h2>
+      <p>3, 2nd St, Joseph Colony, Kannan Nagar,</p>
+      <p>Kamaraj Nagar, ChromepeChennai,</p>
+      <p>Tamil Nadu, India 600044</p>
+    </section>
+  </div>
+  <footer>
+    <p>© 2025 அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம்.</p>
+  </footer>
+</body>
+</html>
