@@ -15,127 +15,38 @@
       background: linear-gradient(135deg, #fff0e5, #ffe9ec, #fffdf9);
       color: #3a2c1a;
     }
+
     header {
       background: linear-gradient(135deg, #4e002f, #a80038, #ff0040);
       color: white;
-      padding: 3em 0;
+      padding: .3em 0;
       text-align: center;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       position: relative;
       overflow: hidden;
     }
+
     header::after {
       content: "";
       position: absolute;
       top: 0;
       left: -50%;
       width: 200%;
-      height: 100%;
+      height: 80%;
       background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
       animation: shine 5s linear infinite;
     }
+
     @keyframes shine {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
+
     header h1 {
-      font-size: 3rem;
+      font-size: 2rem;
       margin-bottom: 0.3em;
     }
-    nav {
-      background: linear-gradient(to right, #ffd6d6, #fff0f0);
-      display: flex;
-      justify-content: center;
-      gap: 3em;
-      padding: 1em 0;
-      border-bottom: 2px solid #ffd6d6;
-    }
-    nav a {
-      text-decoration: none;
-      color: #a00000;
-      font-weight: bold;
-      font-size: 1.1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #cc0000;
-    }
-    .container {
-      padding: 0em 1.5em;
-      max-width: 1100px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 4em;
-    }
-    h2 {
-      color: #b30000;
-      font-size: 2rem;
-      margin-bottom: 0.5em;
-    }
-    p {
-      line-height: 1.8;
-      font-size: 1.1rem;
-    }
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5em;
-      margin-top: 1.5em;
-    }
-    .image-gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
-    }
-    .image-gallery img:hover {
-      transform: scale(1.03);
-    }
-    footer {
-      background: linear-gradient(to right, #800000, #4e0000);
-      color: white;
-      text-align: center;
-      padding: 1.5em;
-      font-size: 0.95rem;
-      border-top: 4px solid #ffcccc;
-    }
-    .infocontainer {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
 
-    .left, .right {
-      width: 45%;
-    }
-
-    .left {
-      text-align: left;
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .right {
-      text-align: right;
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-     .carousel-track {
-       display: flex;
-      gap: 16px; /* space between images */
-      transition: transform 0.6s ease-in-out;
-    }
-
-    .carousel-track img {
-      width: 300px;
-      height: 500px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    }
     .ticker-container {
       width: 100%;
       background-color: #e0f7fa;
@@ -149,7 +60,7 @@
       display: inline-block;
       padding-left: 100%;
       animation: scrollText 50s linear infinite;
-      font-size: 24px;
+      font-size: 15px;
       color: #333;
     }
 
@@ -157,83 +68,273 @@
       from { transform: translateX(0%); }
       to { transform: translateX(-100%); }
     }
+
+    .containerVideo {
+      position: relative;
+      width: 90%;
+      margin: 20px auto;
+      overflow: hidden;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background: #fff;
+    }
+
+    .video-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 0;
+    }
+
+    .video-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .video-item {
+      flex: 0 0 auto;
+      width: 300px;
+      margin: 0 10px;
+      border-radius: 8px;
+      background: #000;
+      color: #333;
+      text-align: center;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .video-title {
+      padding: 10px;
+      background: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 24px;
+      z-index: 10;
+      border-radius: 5px;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .left-arrow { left: 10px; }
+    .right-arrow { right: 10px; }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      background: #fff;
+      border-top: 3px solid #ccc;
+      border-bottom: 3px solid #ccc;
+    }
+
+    .carousel-track-wrapper {
+      display: flex;
+      width: fit-content;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    .carousel-track img {
+      height: 350px;
+      width: auto;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .carousel-track img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #fff;
+      margin-bottom: 20px;
+    }
+
+    .popup-text {
+      color: #fff;
+      font-size: 20px;
+      max-width: 90%;
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .popup-close:hover {
+      color: #ff5555;
+    }
+
+    .infocontainer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 1100px;
+      margin: auto;
+      padding: .5em;
+    }
+
+    .left, .right {
+      width: 45%;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    footer {
+      background: linear-gradient(to right, #800000, #4e0000);
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+      font-size: 0.95rem;
+      border-top: 4px solid #ffcccc;
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம் </h1>
-    <p>குரோம்பேட்டை - சென்னை </p>
+    <h1>அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம்</h1>
+    <p>குரோம்பேட்டை - சென்னை</p>
   </header>
+
   <div class="ticker-container">
-    <div class="ticker-text">
-      📰 அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம், குரோம்பேட்டை - சென்னை....
-    </div>
+    <div class="ticker-text">📰 அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம், குரோம்பேட்டை - சென்னை....</div>
   </div>
-  <!-- <nav>
-    <a href="#about">முகப்பு</a>
-    <a href="#gallery">புகை படங்கள்</a>
-    <a href="#contact">தொடர்பு</a>
-  </nav>   -->
-  <div class="container">          
-    <section id="gallery">     
-      <div class="image-gallery">
+
+    <!-- Image Carousel -->
+  <section>
+    <div class="carousel-container">
+      <div class="carousel-track-wrapper">
         <div class="carousel-track" id="carouselTrack">
-        <img src="1.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="2.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="3.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />  
-        <img src="4.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="5.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="6.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" /> 
-        <img src="7.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="8.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />
-        <img src="9.jpg" alt="தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி" />    
-        </div>  
+          <img src="1.jpg" alt="Image 1" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="2.jpg" alt="Image 2" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="3.jpg" alt="Image 3" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="4.jpg" alt="Image 4" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="5.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="6.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="7.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="8.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="9.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+          <img src="1.jpg" alt="Image 5" data-title="ஜெய ஜெய.." onclick="showPopup(this)">
+        </div>
       </div>
-    </section>
-    <section id="about">     
-      <div class="infocontainer">
-    <div class="left">
-     <section id="contact">
-      <h2>தொடர்பு</h2>
-      <p>3, 2nd St, Joseph Colony, Kannan Nagar,</p>
-      <p>Chromepet, Chennai,Tamil Nadu,</p>
-      <p>India, Pin-600044.</p>
-    </section>
     </div>
 
-    <div class="right">
-      <h2>நிகழ்வுகள் </h2>
-    <p>🗓️ August 15 – Na</p>
-    <p>🗓️ August 22 – Na</p>
-    <p>🗓️ September 1 – Navaratri Preparations Begin</p>
+  <!-- Video Section -->
+  <div class="containerVideo">
+    <button class="arrow left-arrow" onclick="scrollVideos(-1)">&#8592;</button>
+    <div class="video-track" id="videoTrack">
+      <div class="video-item"><video src="1.mp4" controls></video><div class="video-title">Panda Climbing Tree</div></div>
+      <div class="video-item"><video src="2.mp4" controls></video><div class="video-title">Baby Panda Eating Bamboo</div></div>
+      <div class="video-item"><video src="3.mp4" controls></video><div class="video-title">Panda Rolling on Grass</div></div>
+      <div class="video-item"><video src="1.mp4" controls></video><div class="video-title">Panda Climbing Tree</div></div>
+      <div class="video-item"><video src="2.mp4" controls></video><div class="video-title">Baby Panda Eating Bamboo</div></div>
+      <div class="video-item"><video src="3.mp4" controls></video><div class="video-title">Panda Rolling on Grass</div></div>
+      </div>
+    <button class="arrow right-arrow" onclick="scrollVideos(1)">&#8594;</button>
+  </div>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup" onclick="hidePopup()">
+      <span class="popup-close" onclick="hidePopup()">×</span>
+      <img id="popup-img" src="" alt="Large View">
+      <div id="popup-text" class="popup-text"></div>
     </div>
-  </div>
-    </section>    
-  </div>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d839.1559860948975!2d80.1472158!3d12.9580276!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525e4bf841c403%3A0x55c67d3f8e6a4420!2sSri%20RajaRajeswari%20Ambal%20Temple!5e1!3m2!1sen!2snl!4v1754304971878!5m2!1sen!2snl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  <div>
-    <a href="index-1.html" src="" >Click</a>
-  </div>
+  </section>
+
+  <!-- Contact & Events -->
+  <section class="infocontainer">
+    <div class="left">
+      <h2>தொடர்பு</h2>
+      <p>3, 2nd St, Joseph Colony, Kannan Nagar,</p>
+      <p>Chromepet, Chennai, Tamil Nadu, India</p>
+      <p>Pin - 600044</p>
+    </div>
+    <div class="right">
+      <h2>நிகழ்வுகள்</h2>
+      <p>🗓️ August 15 – Event 1</p>
+      <p>🗓️ August 22 – Event 2</p>
+      <p>🗓️ September 1 – Navaratri Preparations Begin</p>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d839.1559860948975!2d80.1472158!3d12.9580276!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525e4bf841c403%3A0x55c67d3f8e6a4420!2sSri%20RajaRajeswari%20Ambal%20Temple!5e1!3m2!1sen!2snl!4v1754304971878!5m2!1sen!2snl" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
   <footer>
     <p>© 2025 அருள்மிகு தேவி ஸ்ரீவித்யா ராஜா ராஜேஸ்வரி ஆலயம்.</p>
   </footer>
-  <script>
-    const track = document.getElementById("carouselTrack");
-    const imagesToShow = 6;
-    const imageWidth = 400; // in pixels
-    const totalImages = track.children.length;
-    let index = 0;
 
-    function scrollCarousel() {
-      index++;
-      if (index > totalImages - imagesToShow) {
-        index = 0; // loop back
-      }
-      track.style.transform = `translateX(-${index * imageWidth}px)`;
+  <script>
+    function scrollVideos(direction) {
+      const track = document.getElementById('videoTrack');
+      const scrollAmount = 320;
+      track.scrollLeft += direction * scrollAmount;
     }
 
-    // Auto-scroll every 3 seconds
-    setInterval(scrollCarousel, 3000);
+    function showPopup(imageElement) {
+      document.getElementById('popup-img').src = imageElement.src;
+      document.getElementById('popup-text').textContent = imageElement.getAttribute('data-title');
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
   </script>
 </body>
 </html>
