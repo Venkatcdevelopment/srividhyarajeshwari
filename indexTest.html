@@ -4,17 +4,17 @@
   <nav class="navbar">
   <ul class="menu">
     <li><a href="#">முகப்பு</a></li>
+    <li><a href="#upcomingevents">நிகழ்வுகள் ▾</a></li>
     <li class="dropdown">
-      <a href="#">நிகழ்வுகள் ▾</a>
+      <a href="#">பாடல்கள் ▾</a>
       <ul class="dropdown-content">
-        <li><a href="#events">நடப்புகள்</a></li>
-        <li><a href="#announcements">அறிவிப்புகள்</a></li>
+        <li><a href="#" onclick="showPopup({src:'sahas.html', title:'ஶ்ரீ லலிதா ஸஹஸ்ரனாம ஸ்தோத்ரம்'})">ஶ்ரீ லலிதா ஸஹஸ்ரனாம ஸ்தோத்ரம்</a></li>      
       </ul>
     </li>
     <li class="dropdown">
       <a href="#">படங்கள் ▾</a>
       <ul class="dropdown-content">
-        <li><a href="#carouselTrack">காரசெல் படங்கள்</a></li>
+        <li><a href="#carouselTrack">படங்கள்</a></li>
       </ul>
     </li>
     <li class="dropdown">
@@ -23,7 +23,7 @@
         <li><a href="#videoTrack">பூஜை வீடியோக்கள்</a></li>
       </ul>
     </li>
-    <li><a href="#contact">தொடர்பு</a></li>
+    <li><a href="#Contact">தொடர்பு</a></li>
   </ul>
 </nav>
 
@@ -385,22 +385,23 @@
   </div>
 
     <!-- Popup Modal -->
-    <div id="popup" class="popup" onclick="hidePopup()">
-      <span class="popup-close" onclick="hidePopup()">×</span>
-      <img id="popup-img" src="" alt="Large View">
-      <div id="popup-text" class="popup-text"></div>
-    </div>
+   <div id="popup" class="popup" onclick="hidePopup()">
+  <span class="popup-close" onclick="hidePopup()">×</span>
+  <img id="popup-img" src="" alt="Large View" style="display:none;">
+  <iframe id="popup-iframe" src="" style="display:none; width:90%; height:80%; border:none; border-radius:10px; background:white;"></iframe>
+  <div id="popup-text" class="popup-text"></div>
+  </div>
   </section>
 
   <!-- Contact & Events -->
   <section class="infocontainer">
-    <div class="left">
+    <div class="left" id="Contact">
       <h2>தொடர்பு</h2>
       <p>3, 2nd St, Joseph Colony, Kannan Nagar,</p>
       <p>Chromepet, Chennai, Tamil Nadu, India</p>
       <p>Pin - 600044</p>
     </div>
-    <div class="right">
+    <div class="right" id="upcomingevents">
       <h2>நிகழ்வுகள்</h2>
       <p>🗓️ 21-September-2025 (Sunday) – ஸ்ரீ மஹா கணபதி ஹோமம், ஸ்ரீ விநாயக பூஜை, நவக்ரஹ சந்தானம், ஸ்ரீ துர்கா ஆவாஹனம், யாகசாலை பூர்ணாஹூதி</p>
       <p>🗓️ 22-September-2025 (Monday) – திருவிலக்கு பூஜை</p>
@@ -430,16 +431,49 @@
       const scrollAmount = 320;
       track.scrollLeft += direction * scrollAmount;
     }
+  function showPopup(source) {
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popup-img');
+  const popupIframe = document.getElementById('popup-iframe');
+  const popupText = document.getElementById('popup-text');
 
-    function showPopup(imageElement) {
-      document.getElementById('popup-img').src = imageElement.src;
-      document.getElementById('popup-text').textContent = imageElement.getAttribute('data-title');
-      document.getElementById('popup').style.display = 'flex';
-    }
+  let src = "";
+  let title = "";
 
-    function hidePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
+  // Case 1: Called from <img>
+  if (source.tagName === "IMG") {
+    src = source.src;
+    title = source.getAttribute('data-title') || "";
+  }
+
+  // Case 2: Called from menu link (passing object with src + title)
+  else if (typeof source === "object") {
+    src = source.src;
+    title = source.title || "";
+  }
+
+  // Show HTML page
+  if (src.endsWith(".html")) {
+    popupImg.style.display = "none";
+    popupIframe.style.display = "block";
+    popupIframe.src = src;
+  }
+  // Show image
+  else {
+    popupIframe.style.display = "none";
+    popupImg.style.display = "block";
+    popupImg.src = src;
+  }
+
+  popupText.textContent = title;
+  popup.style.display = "flex";
+}
+
+function hidePopup() {
+  document.getElementById('popup').style.display = 'none';
+  document.getElementById('popup-iframe').src = ""; // stop iframe loading
+}
+
   </script>
 </body>
 </html>
